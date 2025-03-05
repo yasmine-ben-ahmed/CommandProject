@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>Upload an Image</h2>
+    
+    <input type="file" (change)="onFileSelected($event)" />
+    <button (click)="uploadImage()" [disabled]="!selectedFile">Upload</button>
+
+      <!-- Display the image if it's uploaded -->
+  <div *ngIf="imageUrl">
+    <h3>Uploaded Image:</h3>
+    <img [src]="imageUrl" alt="Uploaded Image" style="max-width: 100%; height: auto;" />
+  </div>
+  
+    <div *ngIf="commands.length > 0">
+      <h3>Extracted Commands:</h3>
+      <ul>
+        <li *ngFor="let command of commands">{{ command }}</li>
+      </ul>
+    </div>
+  </div>
+  
